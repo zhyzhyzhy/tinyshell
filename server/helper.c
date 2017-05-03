@@ -12,5 +12,5 @@
 #include <arpa/inet.h>
 
 void usage() {
-    fprintf(stderr, "simpleServer host port\n");
+    fprintf(stderr, "usage :: WebServer host port index_home\n");
 }
