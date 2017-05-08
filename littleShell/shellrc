@@ -1,1 +1,2 @@
-PATH=/bin
+PATH=/bin;/usr/bin
+name=2
