@@ -15,8 +15,6 @@ env_path *path;
 
 void env_init() {
     env_var_header = malloc(sizeof(env_var));
-//    path = malloc(sizeof(env_path));
-//    free(path);
     /* parse shellrc file*/
     FILE *file = fopen("./shellrc", "r");
     if (file) {
