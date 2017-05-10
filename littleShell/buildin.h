@@ -6,4 +6,5 @@
 #define LITTLESHELL_BUILDIN_H
 int buildin_judge(char *line);
 int buildin_exit(char *line);
+int buildin_cd(char *line);
 #endif //LITTLESHELL_BUILDIN_H

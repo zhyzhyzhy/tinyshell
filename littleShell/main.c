@@ -3,7 +3,6 @@
 #include <sys/wait.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 #include "line_parser.h"
 #include "buildin.h"
 #include "env.h"
@@ -22,7 +21,7 @@ int main() {
     shell_init();
 
     int count = 0;
-    fprintf(stdout, "[%d]: ", count++);
+    fprintf(stdout, "[%d] %s ~ : ", count++, get_current_dir_name());
 
     char line[1024];
     while (fgets(line, 1024, stdin) != 0) {
@@ -31,6 +30,7 @@ int main() {
 
         //判断是否是内置命令
         if (buildin_judge(line)) {
+            fprintf(stdout, "[%d] %s ~ : ", count++, get_current_dir_name());
             continue;
         }
 
@@ -39,7 +39,7 @@ int main() {
         job1->first_process = head;
         launch_job(job1);
         destroy_job(job1);
-        fprintf(stdout, "[%d]: ", count++);
+        fprintf(stdout, "[%d] %s ~ : ", count++, get_current_dir_name());
     }
     return 0;
 }
