@@ -8,17 +8,21 @@
 #include "buildin.h"
 
 /* 把命令用buildin的扫一遍 */
-void buildin_judge(char *line)
+int buildin_judge(char *line)
 {
-    buildin_exit(line);
+    if (buildin_exit(line)) {
+        return 1;
+    }
+    return 0;
 }
 
 
 /* exit 退出shell*/
-void buildin_exit(char *line)
+int buildin_exit(char *line)
 {
     if (!strncmp(line, "exit",4)) {
         fprintf(stdout, "bye\n");
         exit(0);
     }
+    return 0;
 }

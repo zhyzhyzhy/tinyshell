@@ -49,7 +49,6 @@ void* get_argument(char* line) {
  * parse a single process to a struct process
  * like ls -al
  */
-
 process* parse_to_a_process(char* line) {
     delete_newline_symbol(line);
 
@@ -125,6 +124,10 @@ process* parse_to_processes(char* line) {
     p->next->next = NULL;
     return head;
 }
-
+job* parse_to_job(char* line) {
+    job* job1 = malloc(sizeof(job));
+    job1->first_process = parse_to_processes(line);
+    return job1;
+}
 
 
